@@ -14,7 +14,7 @@ public class FileReader {
         boolean fl = false;
         String[] par = new String[4];
 
-        try (FileInputStream inputStream = new FileInputStream(file.getAbsolutePath())) {
+        try (FileInputStream inputStream = new FileInputStream(file.getPath())) {
             int ch;
             while ((ch = inputStream.read()) != -1) {
                 if ((char)ch == ':' || (char)ch == '\r') {
@@ -28,9 +28,9 @@ public class FileReader {
 
             par = str.toString().trim().split(" ");
         } catch (FileNotFoundException e) {
-            e.fillInStackTrace();
+            e.printStackTrace();
         } catch (IOException e) {
-            e.fillInStackTrace();
+            e.printStackTrace();
         }
 
         return new Profile(par[0], Integer.valueOf(par[1]), par[2], Long.valueOf(par[3]));
