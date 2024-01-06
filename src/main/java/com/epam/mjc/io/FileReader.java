@@ -27,8 +27,6 @@ public class FileReader {
             }
 
             par = str.toString().trim().split(" ");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
